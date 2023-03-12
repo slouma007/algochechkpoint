@@ -1,0 +1,77 @@
+ALGORITHM count_character
+VAR
+    i: STRING := "str";
+BEGIN
+    BEGIN
+  
+  SET wordCount to 0
+  SET vowelCount to 0
+  SET characterCount to 0
+
+ 
+  DISPLAY "welcome to the first checkpoint of algorithm. "
+  READ sentence
+
+
+  FOR i = 1 to length of sentence
+    SET currentChar to the i-th character of sentence
+    INCREMENT characterCount by 1
+
+   
+    IF currentChar is 'a' OR currentChar is 'e' OR currentChar is 'i' OR currentChar is 'o' OR currentChar is 'u'
+      INCREMENT vowelCount by 1
+    END IF
+
+ 
+    IF currentChar is space OR currentChar is '.'
+      INCREMENT wordCount by 1
+    END IF
+  END FOR
+
+  
+  DISPLAY "Number of words: " + wordCount
+  DISPLAY "Number of vowels: " + vowelCount
+  DISPLAY "Number of characters: " + characterCount
+
+
+
+END
+
+
+
+
+
+
+
+ALGORITHM traverse_array
+VAR
+ set1: ARRAY_OF INTEGER[3]
+ set2: ARRAY_OF INTEGER[4]
+
+
+BEGIN
+  SET set1 to [3, 1, 7, 9]
+  SET set2 to [2, 4, 1, 9, 3]
+  SET distinctElements to an empty array
+  SET sum to 0
+  
+  FOR each element in set1
+    IF element is not in set2
+      IF element is not in distinctElements
+        APPEND element to distinctElements
+        INCREMENT sum by element
+    END IF
+  END FOR
+  
+  FOR each element in set2
+    IF element is not in set1
+      IF element is not in distinctElements
+        APPEND element to distinctElements
+        INCREMENT sum by element
+      END IF
+    END IF
+  END FOR
+  
+  DISPLAY "The sum of all distinct elements in the two sets is " + sum
+END
+
